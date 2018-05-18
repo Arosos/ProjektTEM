@@ -1,39 +1,35 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjektTEM
 {
     public partial class Form1 : Form
     {
-        string originalImageFilename, imageFilenameAfterThresholding;
-
         public Form1()
         {
             InitializeComponent();
+            morphologyTypeDropdownList.Items.AddRange(Enum.GetNames(typeof(Morphology)));
+            morphologyTypeDropdownList.SelectedItem = morphologyTypeDropdownList.Items[0];
         }
 
         private void LoadImageButton_Click(object sender, EventArgs e)
         {
             FileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "Image Files(*.BMP; *.JPG; *.GIF)| *.BMP; *.JPG; *.GIF | All files(*.*) | *.*";
+            fileDialog.Filter = "Image Files(*.BMP; *.JPG; *.GIF; *.PNG)| *.BMP; *.JPG; *.GIF; *.PNG; | All files(*.*) | *.*";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                originalImageFilename = fileDialog.FileName;
                 pictureBoxBefore.ImageLocation = fileDialog.FileName;
             }
         }
 
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            pictureBoxFiltered.ImageLocation = ImageFiltering.Filter(pictureBoxAfterThreshold.ImageLocation, (Morphology)Enum.Parse(typeof(Morphology), morphologyTypeDropdownList.SelectedItem.ToString()));
+        }
+
         private void ThresholdButton_Click(object sender, EventArgs e)
         {
-            imageFilenameAfterThresholding = ImageFiltering.Threshold(originalImageFilename);
-            pictureBoxAfterThreshold.ImageLocation = imageFilenameAfterThresholding;
+            pictureBoxAfterThreshold.ImageLocation = ImageFiltering.Threshold(pictureBoxBefore.ImageLocation, (float)thresholdFactor.Value);
         }
     }
 }

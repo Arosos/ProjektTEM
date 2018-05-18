@@ -35,9 +35,14 @@ namespace ProjektTEM
             this.pictureBoxAfterThreshold = new System.Windows.Forms.PictureBox();
             this.pictureBoxFiltered = new System.Windows.Forms.PictureBox();
             this.thresholdButton = new System.Windows.Forms.Button();
+            this.thresholdFactorLabel = new System.Windows.Forms.Label();
+            this.thresholdFactor = new System.Windows.Forms.NumericUpDown();
+            this.filterButton = new System.Windows.Forms.Button();
+            this.morphologyTypeDropdownList = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBefore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAfterThreshold)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFiltered)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thresholdFactor)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -59,7 +64,7 @@ namespace ProjektTEM
             // loadImageButton
             // 
             this.loadImageButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.loadImageButton.Location = new System.Drawing.Point(13, 651);
+            this.loadImageButton.Location = new System.Drawing.Point(13, 428);
             this.loadImageButton.Name = "loadImageButton";
             this.loadImageButton.Size = new System.Drawing.Size(75, 23);
             this.loadImageButton.TabIndex = 2;
@@ -90,7 +95,7 @@ namespace ProjektTEM
             // thresholdButton
             // 
             this.thresholdButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.thresholdButton.Location = new System.Drawing.Point(94, 651);
+            this.thresholdButton.Location = new System.Drawing.Point(94, 428);
             this.thresholdButton.Name = "thresholdButton";
             this.thresholdButton.Size = new System.Drawing.Size(131, 23);
             this.thresholdButton.TabIndex = 5;
@@ -98,11 +103,68 @@ namespace ProjektTEM
             this.thresholdButton.UseVisualStyleBackColor = true;
             this.thresholdButton.Click += new System.EventHandler(this.ThresholdButton_Click);
             // 
+            // thresholdFactorLabel
+            // 
+            this.thresholdFactorLabel.AutoSize = true;
+            this.thresholdFactorLabel.Location = new System.Drawing.Point(91, 385);
+            this.thresholdFactorLabel.Name = "thresholdFactorLabel";
+            this.thresholdFactorLabel.Size = new System.Drawing.Size(87, 13);
+            this.thresholdFactorLabel.TabIndex = 6;
+            this.thresholdFactorLabel.Text = "Threshold Factor";
+            // 
+            // thresholdFactor
+            // 
+            this.thresholdFactor.DecimalPlaces = 2;
+            this.thresholdFactor.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.thresholdFactor.Location = new System.Drawing.Point(94, 402);
+            this.thresholdFactor.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.thresholdFactor.Name = "thresholdFactor";
+            this.thresholdFactor.Size = new System.Drawing.Size(84, 20);
+            this.thresholdFactor.TabIndex = 7;
+            this.thresholdFactor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.thresholdFactor.Value = new decimal(new int[] {
+            175,
+            0,
+            0,
+            131072});
+            // 
+            // filterButton
+            // 
+            this.filterButton.Location = new System.Drawing.Point(232, 428);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.Size = new System.Drawing.Size(75, 23);
+            this.filterButton.TabIndex = 8;
+            this.filterButton.Text = "Filter";
+            this.filterButton.UseVisualStyleBackColor = true;
+            this.filterButton.Click += new System.EventHandler(this.FilterButton_Click);
+            // 
+            // morphologyTypeDropdownList
+            // 
+            this.morphologyTypeDropdownList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.morphologyTypeDropdownList.FormattingEnabled = true;
+            this.morphologyTypeDropdownList.Location = new System.Drawing.Point(186, 401);
+            this.morphologyTypeDropdownList.Name = "morphologyTypeDropdownList";
+            this.morphologyTypeDropdownList.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.morphologyTypeDropdownList.Size = new System.Drawing.Size(121, 21);
+            this.morphologyTypeDropdownList.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1151, 686);
+            this.ClientSize = new System.Drawing.Size(1151, 463);
+            this.Controls.Add(this.morphologyTypeDropdownList);
+            this.Controls.Add(this.filterButton);
+            this.Controls.Add(this.thresholdFactor);
+            this.Controls.Add(this.thresholdFactorLabel);
             this.Controls.Add(this.thresholdButton);
             this.Controls.Add(this.pictureBoxFiltered);
             this.Controls.Add(this.pictureBoxAfterThreshold);
@@ -113,7 +175,9 @@ namespace ProjektTEM
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBefore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAfterThreshold)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFiltered)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thresholdFactor)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -125,6 +189,10 @@ namespace ProjektTEM
         private System.Windows.Forms.PictureBox pictureBoxAfterThreshold;
         private System.Windows.Forms.PictureBox pictureBoxFiltered;
         private System.Windows.Forms.Button thresholdButton;
+        private System.Windows.Forms.Label thresholdFactorLabel;
+        private System.Windows.Forms.NumericUpDown thresholdFactor;
+        private System.Windows.Forms.Button filterButton;
+        private System.Windows.Forms.ComboBox morphologyTypeDropdownList;
     }
 }
 
