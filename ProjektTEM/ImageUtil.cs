@@ -16,12 +16,10 @@ namespace ProjektTEM
             return count;
         }
 
-        public static string SaveImage(string filename, Bitmap bmp, string suffix)
+        public static string AddSuffix(string filename, string suffix)
         {
             string[] path = filename.Split('.');
-            string newFilename = path[0] + suffix + '.' + path[1];
-            bmp.Save(newFilename);
-            return newFilename;
+            return path[0] + suffix + '.' + path[1];
         }
 
         public static Bitmap MinkowskiSum(Bitmap bmp, Color color)

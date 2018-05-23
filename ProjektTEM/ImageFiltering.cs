@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Reflection;
 
 namespace ProjektTEM
@@ -13,7 +12,7 @@ namespace ProjektTEM
             { Color.Black, Color.Black, Color.Black }
         };
 
-        public static string Threshold(string filename, float thresholdFactor)
+        public static Bitmap Threshold(string filename, float thresholdFactor)
         {
             Bitmap bmp = new Bitmap(Image.FromFile(filename));
             Bitmap newBmp = (Bitmap)bmp.Clone();
@@ -30,15 +29,14 @@ namespace ProjektTEM
                     newBmp.SetPixel(x, y, color);
                 }
             }
-            return ImageUtil.SaveImage(filename, newBmp, "Thresholded");
+            return newBmp;
         }
 
-        public static string Filter(string filename, Morphology type)
+        public static Bitmap Filter(Bitmap bmp, Morphology type)
         {
-            Bitmap bmp = (Bitmap)Image.FromFile(filename);
             MethodInfo method = typeof(ImageFiltering).GetMethod(type.ToString());
             Bitmap newBmp = (Bitmap)method.Invoke(null, new object[] { bmp });
-            return ImageUtil.SaveImage(filename, newBmp, type.ToString());
+            return newBmp; //ImageUtil.SaveImage(filename, newBmp, type.ToString());
         }
 
         public static Bitmap Erosion(Bitmap bmp)
