@@ -39,6 +39,8 @@ namespace ProjektTEM
             this.thresholdFactor = new System.Windows.Forms.NumericUpDown();
             this.filterButton = new System.Windows.Forms.Button();
             this.morphologyTypeDropdownList = new System.Windows.Forms.ComboBox();
+            this.saveThresholdButton = new System.Windows.Forms.Button();
+            this.saveFilteredButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBefore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAfterThreshold)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFiltered)).BeginInit();
@@ -156,11 +158,33 @@ namespace ProjektTEM
             this.morphologyTypeDropdownList.Size = new System.Drawing.Size(121, 21);
             this.morphologyTypeDropdownList.TabIndex = 9;
             // 
+            // saveThresholdButton
+            // 
+            this.saveThresholdButton.Location = new System.Drawing.Point(664, 375);
+            this.saveThresholdButton.Name = "saveThresholdButton";
+            this.saveThresholdButton.Size = new System.Drawing.Size(75, 23);
+            this.saveThresholdButton.TabIndex = 10;
+            this.saveThresholdButton.Text = "Save";
+            this.saveThresholdButton.UseVisualStyleBackColor = true;
+            this.saveThresholdButton.Click += new System.EventHandler(this.saveThresholdButton_Click);
+            // 
+            // saveFilteredButton
+            // 
+            this.saveFilteredButton.Location = new System.Drawing.Point(1030, 375);
+            this.saveFilteredButton.Name = "saveFilteredButton";
+            this.saveFilteredButton.Size = new System.Drawing.Size(75, 23);
+            this.saveFilteredButton.TabIndex = 11;
+            this.saveFilteredButton.Text = "Save";
+            this.saveFilteredButton.UseVisualStyleBackColor = true;
+            this.saveFilteredButton.Click += new System.EventHandler(this.saveFilteredButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1151, 463);
+            this.Controls.Add(this.saveFilteredButton);
+            this.Controls.Add(this.saveThresholdButton);
             this.Controls.Add(this.morphologyTypeDropdownList);
             this.Controls.Add(this.filterButton);
             this.Controls.Add(this.thresholdFactor);
@@ -193,6 +217,8 @@ namespace ProjektTEM
         private System.Windows.Forms.NumericUpDown thresholdFactor;
         private System.Windows.Forms.Button filterButton;
         private System.Windows.Forms.ComboBox morphologyTypeDropdownList;
+        private System.Windows.Forms.Button saveThresholdButton;
+        private System.Windows.Forms.Button saveFilteredButton;
     }
 }
 
